@@ -34,7 +34,6 @@ export default function App() {
 
   // Estados Financeiros (Raio-X do Salário)
   const [salarioBase, setSalarioBase] = useState(3170.00);
-  const [auxilioAlimentacao, setAuxilioAlimentacao] = useState(449.10);
   const [horasSemanaisContrato, setHorasSemanaisContrato] = useState(20);
 
   // Estados do Controle de Execução (Mês Atual)
@@ -139,7 +138,7 @@ export default function App() {
   const projetadoFinalMes = (qntSegundas * custoSegunda) + (qntSextas * custoSexta);
 
   // --- CÁLCULOS DE SALÁRIO (RAIO-X) ---
-  const rendaTotalMensal = salarioBase + auxilioAlimentacao;
+  const rendaTotalMensal = salarioBase;
   const saldoLivreReal = rendaTotalMensal - custoMensal; 
   const saldoLivreComGordura = rendaTotalMensal - reservaRecomendada; 
   
@@ -645,18 +644,6 @@ export default function App() {
                     />
                   </div>
                 </div>
-                <div className="flex justify-between items-center group">
-                  <span className="text-sm font-medium text-slate-400">Auxílio Alim.</span>
-                  <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">R$</span>
-                    <input 
-                      type="number" 
-                      value={auxilioAlimentacao}
-                      onChange={(e) => setAuxilioAlimentacao(Number(e.target.value))}
-                      className="w-32 bg-slate-800 border border-slate-700 text-white rounded-lg pl-8 pr-3 py-1.5 text-right outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 transition-all font-semibold"
-                    />
-                  </div>
-                </div>
                 <div className="flex justify-between items-center pt-3 border-t border-slate-800">
                   <span className="text-sm font-medium text-slate-400">Carga Semanal</span>
                   <div className="relative flex items-center">
@@ -697,16 +684,6 @@ export default function App() {
                       </div>
                       <div className="w-full bg-slate-700/50 rounded-full h-1.5 overflow-hidden">
                         <motion.div initial={{ width: 0 }} animate={{ width: `${Math.min((salarioBase / rendaTotalMensal) * 100, 100)}%` }} transition={{ duration: 1, delay: 0.1 }} className="bg-indigo-400 h-1.5 rounded-full" />
-                      </div>
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <div className="flex justify-between text-xs text-slate-300">
-                        <span>Auxílio Alim.</span>
-                        <span className="font-bold">{(rendaTotalMensal > 0 ? (auxilioAlimentacao / rendaTotalMensal) * 100 : 0).toFixed(1)}%</span>
-                      </div>
-                      <div className="w-full bg-slate-700/50 rounded-full h-1.5 overflow-hidden">
-                        <motion.div initial={{ width: 0 }} animate={{ width: `${Math.min((auxilioAlimentacao / rendaTotalMensal) * 100, 100)}%` }} transition={{ duration: 1, delay: 0.2 }} className="bg-emerald-400 h-1.5 rounded-full" />
                       </div>
                     </div>
 
