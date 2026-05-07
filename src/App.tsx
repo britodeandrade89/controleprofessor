@@ -33,7 +33,7 @@ export default function App() {
   const [consumoVeiculo, setConsumoVeiculo] = useState(10);
 
   // Estados Financeiros (Raio-X do Salário)
-  const [salarioBase, setSalarioBase] = useState(3650.83);
+  const [salarioBase, setSalarioBase] = useState(3170.00);
   const [auxilioAlimentacao, setAuxilioAlimentacao] = useState(449.10);
   const [horasSemanaisContrato, setHorasSemanaisContrato] = useState(20);
 
@@ -208,7 +208,7 @@ export default function App() {
                     className="text-3xl sm:text-[2.4rem] md:text-[3rem] leading-[1.1] mb-1 text-transparent bg-clip-text bg-gradient-to-b from-[#fdf9f1] via-[#d5bba0] to-[#80613b]" 
                     style={{ fontFamily: '"Playfair Display", serif', fontWeight: 900, filter: 'drop-shadow(0px 4px 6px rgba(0,0,0,0.9))' }}
                   >
-                    PAINEL LOGÍSTICO
+                    CONTROLE PROFESSOR
                   </h1>
                   <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.3em] text-[#8e9bb0] drop-shadow-lg pl-1">
                     Prof. André Brito
