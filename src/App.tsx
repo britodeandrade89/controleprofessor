@@ -20,6 +20,16 @@ import {
   CheckCircle2,
   ChevronRight
 } from 'lucide-react';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer
+} from 'recharts';
 
 export default function App() {
   // Estados de Rota
@@ -714,6 +724,26 @@ export default function App() {
                     <p className="text-[11px] text-indigo-300 font-bold mb-0.5">Líquido Real</p>
                     <p className="text-xl font-black text-indigo-400">R$ {valorHoraLiquido.toFixed(2).replace('.', ',')}</p>
                   </div>
+                </div>
+              </div>
+              
+              {/* GRÁFICO DE TENDÊNCIA FINANCEIRA */}
+              <div className="mt-8 relative z-10 bg-slate-800/40 p-4 rounded-xl border border-slate-700/50">
+                <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-4">Tendência Mensal</h3>
+                <div className="h-48">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={[
+                      { name: 'Renda', value: rendaTotalMensal },
+                      { name: 'Gastos', value: custoMensal },
+                      { name: 'Saldo', value: saldoLivreReal },
+                    ]}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+                      <XAxis dataKey="name" stroke="#94a3b8" fontSize={12} />
+                      <YAxis stroke="#94a3b8" fontSize={12} />
+                      <Tooltip contentStyle={{ backgroundColor: '#1e293b', borderColor: '#475569', color: '#f1f5f9' }} />
+                      <Bar dataKey="value" fill="#6366f1" radius={[4, 4, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
                 </div>
               </div>
             </section>
